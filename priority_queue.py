@@ -10,7 +10,7 @@ class PriorityQueue:
   def pop(self):
     if len(self.heap) > 1:
       self._swap(0, len(self.heap) - 1)
-      _, item = self.heap.pop() #priority 변수를 사용하지 않아 _로 전환함. 필요시 수정
+      _, item = self.heap.pop() #priority 변수를 사용하지 않아 _로 전환하였음. 필요시 수정
       self._sift_down(0)
       return item
     elif len(self.heap) == 1:
