@@ -20,9 +20,14 @@ class PriorityQueue:
       return None
 
   def _sift_up(self, index):
+    # 인덱스가 0보다 클 때,
+    # 부모 인덱스로 전환
+    # 부모가 지금보다 크다면?
+    # 테스크가 크다면? ㄴㄴ -> priority를 기준으로 설정해야함.
+
     while index > 0:
       parent_index = (index - 1) // 2
-      if self.heap[parent_index][0] > self.heap[index][0]:
+      if self.heap[parent_index][1] > self.heap[index][1]:
         self._swap(parent_index, index)
         index = parent_index
       else:
@@ -35,11 +40,11 @@ class PriorityQueue:
       smallest = index
 
       if left_child_index < len(self.heap) and \
-        self.heap[left_child_index][0] > self.heap[smallest][0]:
+        self.heap[left_child_index][1] > self.heap[smallest][1]:
         smallest = left_child_index
 
       if right_child_index < len(self.heap) and \
-        self.heap[right_child_index][0] > self.heap[smallest][0]:
+        self.heap[right_child_index][1] > self.heap[smallest][1]:
         smallest = right_child_index
 
       if smallest != index:
